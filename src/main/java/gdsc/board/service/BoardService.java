@@ -16,12 +16,10 @@ public class BoardService {
 
     private final JpaBoardRepository boardRepository;
 
-    //게시글 등록
     public void submit(Data data){
         boardRepository.save(data);
     }
 
-    //전체 게시글 조회
     public List<Data> findMembers(){
         return boardRepository.findAll();
     }

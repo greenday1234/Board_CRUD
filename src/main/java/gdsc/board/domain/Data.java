@@ -14,8 +14,8 @@ public class Data {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;    //데이터를 구분하기 위해 System이 정하는 id
-    private String name;    //이름
+    private Long id;
+    private String name;
     private String title;
     private String content;
 }

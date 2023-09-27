@@ -24,6 +24,7 @@ public class BoardController {
     @GetMapping("list")
     public String dataList(Model model){
         model.addAttribute("list",boardService.findAll());
+
         return "list";
     }
 
@@ -34,6 +35,7 @@ public class BoardController {
         data.setContent(content);
         data.setTitle(title);
         boardService.submit(data);
+
         return "redirect:/";
     }
 
@@ -42,18 +44,21 @@ public class BoardController {
         Data data=boardRepository.findById(id).orElseThrow(()->
                 new IllegalArgumentException("존재안함"));
         model.addAttribute("data",data);
+
         return "update";
     }
 
     @PostMapping("/update")
     public String updateBoard(@RequestParam Long id, String content){
         boardService.update(id,content);
+
         return "redirect:/";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteBoard(@PathVariable Long id){
         boardRepository.deleteById(id);
+
         return "redirect:/";
     }
 }
